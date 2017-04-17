@@ -1,0 +1,33 @@
+{
+  "name": "ppet",
+  "version": "1.0.0",
+  "description": "Project Portfolio Evaluation Tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscarsanabria28/ppet.git"
+  },
+  "keywords": [
+    "Admin",
+    "Evaluation",
+    "final",
+    "Project",
+    "Manage",
+    "tool"
+  ],
+  "author": "oscarsanabria28@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscarsanabria28/ppet/issues"
+  },
+  "homepage": "https://github.com/oscarsanabria28/ppet#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
