@@ -1,0 +1,40 @@
+<!-- Functions used for the PBP tab-->
+<script src="js/pbp_func.js"></script>
+  <div id='tab_content'>
+    <table>
+      <tr>
+        <td>
+          Number of Periods:
+        </td><td>
+          <select id='p_no' onchange="makeTablePBP()">
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6" selected>06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+          </select>
+        </td>
+      </tr><tr>
+        <td>
+          Principal
+        </td><td>
+          <input type="number" id='principal' value='0'>
+        </td>
+      </tr><tr>
+        <td>
+          Interest Rate (%)
+        </td><td>
+          <input type="number" id='interest' value='0' onchange="taxClamp()">
+        </td>
+      </tr>
+    </table>
+    <button id='test' onclick="clearDataPBP()">Clear Data</button>  <button id='test2' onclick="calculatePBP()">Calculate PBP</button>
+    <div id='pbp_table'>
+      <script></script>
+    </div>
+  </div>
