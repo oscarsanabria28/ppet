@@ -1,3 +1,17 @@
 body{
-	background-color: #54ABE8;
+	background-color: #E2E0E0;
+	color: #474747;
+}
+.button-box{
+	margin:1%;
+}
+
+.our-button{
+	width: 100%;
+	height: auto;
+}
+
+.my-table-pbp{
+	width: auto;
+	margin-top: 3px;
 }

@@ -1,11 +1,14 @@
 
+function temple(){
+	document.getElementById('content_response').innerHTML='Work in progress';
+}
 
 function getPbp(){
 	//alert("getPbp");
 
 	$.ajax({
         type: "POST",
-        url: "http://localhost:8000/getBpb",
+        url: "/getBpb",
         data: {},
         success: function(data) 
         {
@@ -22,7 +25,7 @@ function getPbp(){
 function getDepreciation(){
 	$.ajax({
         type: "POST",
-        url: "http://localhost:8000/getDepre",
+        url: "/getDepre",
         data: {},
         success: function(data) 
         {
@@ -76,12 +79,12 @@ function getDepreciation(){
         switch(tipo){
             case 0: { alert("Porfavor ingrese un tipo de depresiación.");break;}
             case 1: { lineal(); break;}
-            case 2: { marcs(3,1); break;}  
-            case 3: { marcs(5,2); break;}
-            case 4: { marcs(7,3); break;}
-            case 5: { marcs(10,4); break;} 
-            case 6: { marcs(15,5); break;}
-            case 7: { marcs(20,6); break;}    
+            case 2: { marcs(3,0); break;}  
+            case 3: { marcs(5,1); break;}
+            case 4: { marcs(7,2); break;}
+            case 5: { marcs(10,3); break;} 
+            case 6: { marcs(15,4); break;}
+            case 7: { marcs(20,5); break;}    
             default :{break;}   
       
         }
@@ -107,7 +110,7 @@ function lineal(){
     //alert(porcentaje);
     porcentaje = porcentaje/periodos;
     //alert(porcentaje);
-    var str="<table>";
+    var str="<table class='table table-striped my-table-pbp'>";
      str+="<tr><th>Periodo</th><th>Porcentaje</th><th>Depreciación</th><th>Depreciación Acumulada</th><th>Valor actual del activo</th><th>Pago de impuesto.</th></tr>";
      var aux = principal;
      var aux2 = 0;
@@ -160,7 +163,7 @@ function marcs(x,y){
     
     
 
-    var str="<table>";
+    var str="<table class='table table-striped my-table-pbp'>";
      str+="<tr><th>Periodo</th><th>Porcentaje</th><th>Depreciación</th><th>Depreciación Acumulada</th><th>Valor actual del activo</th><th>Pago de impuesto.</th></tr>";
      var aux = principal;
      var aux2 = 0;
@@ -176,14 +179,15 @@ function marcs(x,y){
        str+="</tr>"; 
     
     for(var i= fecha+1; i<=fecha+periodos; i++){
+    	if(i-fecha-1==x+1){break;}
        str+="<tr>";
        str+="<td>"+i+"</td>";
         porcentaje = mar[y][i-fecha-1];
        str+="<td>"+porcentaje+"</td>";
        str+="<td>"+porcentaje*aux+"</td>";
-       aux2 += porcentaje*principal;
+       aux2 += porcentaje*aux;
        str+="<td>"+aux2+"</td>";  
-       aux -= porcentaje*principal;
+       aux -= porcentaje*aux;
        str+="<td>"+aux+"</td>";   
         str+="<td>"+aux*impuesto+"</td>";  
         
@@ -197,10 +201,10 @@ function marcs(x,y){
 
 function makeTablePBP_n(row_num){
   //Create table for n # periods + 1
-  var streamout = "<table>";
+  var streamout = "<table class='table table-striped my-table-pbp'>";
   streamout += "<tr><th></th><th>Inflows</th><th>Outflows</th><th>Cummulative Cash Flow</th></tr>";
   for(var i = 0; i <= row_num; i++){
-    streamout += "<tr><td>"+i+"</td><td><input type=\"number\" id='inflow"+i+"' value='0'></td><td><input type=\"number\" id='outflow"+i+"' value='0'></td><td><input type=\"number\" id='cummulative"+i+"' value='0'></td></tr>";
+    streamout += "<tr><td>"+i+"</td><td><input type=\"number\" id='inflow"+i+"' value='0'></td><td><input type=\"number\" id='outflow"+i+"' value='0'></td><td><label  id='cummulative"+i+"' >0</label></td></tr>";
   }
   streamout += "</table>";
   //alert(streamout);
@@ -246,10 +250,10 @@ function calculatePBP(){
     }
     //Calculate net cash flow for period 0
     if (i == 0){
-      document.getElementById('cummulative'+i).value = inflow/1 - principal/1 - outflow/1;
+      document.getElementById('cummulative'+i).innerHTML = inflow/1 - principal/1 - outflow/1;
       //Calculate cash flows for subsequent periods using cummulatives from previous periods.
     } else {
-      document.getElementById('cummulative'+i).value = inflow/1 - outflow/1 + document.getElementById('cummulative'+(i-1)).value*(1+interest/100);
+      document.getElementById('cummulative'+i).innerHTML = inflow/1 - outflow/1 + document.getElementById('cummulative'+(i-1)).innerHTML*(1+interest/100);
     }
   }
 }

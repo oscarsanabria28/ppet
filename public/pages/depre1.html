@@ -9,16 +9,17 @@
     <br>
     Seleccione el tipo de depreciacion:<select id="tipo" onchange="ver(this.value)">
     <option value="0">""</option>
-    <option value="1">lineal</option>
-    <option value="2">Marcs categoria 5</option>
-    <option value="3">Marcs categoria 7</option>
-    <option value="4">Marcs categoria 10</option>
-    <option value="5">Marcs categoria 15</option>
-    <option value="6">Marcs categoria 20</option>
+    <option value="1">Lineal</option>
+    <option value="2">MACRS categoria 3</option>
+    <option value="3">MACRS categoria 5</option>
+    <option value="4">MACRS categoria 7</option>
+    <option value="5">MACRS categoria 10</option>
+    <option value="6">MACRS categoria 15</option>
+    <option value="7">MACRS categoria 20</option>
     </select><br>
     <div style="display:none;" id="show">
     <label>Deme el salvage value:</label><input type ="number" id="salvage" ></div>
     <br>
     <br>
-    <button onclick="calcular()">Calcular Tabla</button>
+    <button onclick="calcular()" class="btn btn-success">Calcular Tabla</button>
     <div id="respuesta"></div>

@@ -2,19 +2,54 @@
 <html>
 <head>
 	<title>Ppet</title>
+	<link rel="shortcut icon" type="image/png" href="images/calculating.png"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script type="text/javascript" src="js/func_index.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 <div align="center">
-	<h1>Project Portfolio Evaluation Tool</h1>
-	<button onclick="getPbp();">PBP</button>
-	<button onclick="getDepreciation();">Depreciación</button>
+	
+
+	<div class="row" style="background-color: #474747; padding: 5px; color: #fff">
+		<h1>Project Portfolio Evaluation Tool</h1>
+		<div class="col-md-4 col-sm-4">
+		<img src="images/tecmty.png" width="70%">
+		</div>
+		<div class="col-md-4 col-sm-4">
+		<h4>Materia: Evaluación y administración de Proyectos</h4>
+		</div>
+		<div class="col-md-4 col-sm-4">
+		<input type="" name="" placeholder="Proyect name" class="form-control" style="width: 80%;"/></br>
+		<input type="" name="" placeholder="Evaluator name" class="form-control" style="width: 80%;"/>
+		</div>
+	</div>
+
+	<div class="row" style="background-color: #474747; padding: 5px; margin-bottom: 15px;">
+		<div class="col-md-2 col-md-offset-1 col-sm-2 col-sm-offset-1">
+		<button onclick="getPbp();" class="btn btn-default our-button">PBP</button>
+		</div>
+		<div class="col-md-2 col-sm-2">
+		<button onclick="getDepreciation();" class="btn btn-default our-button">Depreciation</button>
+		</div>
+		<div class="col-md-2  col-sm-2">
+		<button  class="btn btn-default our-button" onclick="temple();">NPV</button>
+		</div>
+		<div class="col-md-2 col-sm-2">
+		<button class="btn btn-default our-button" onclick="temple();">CheckList</button>
+		</div>
+		<div class="col-md-2  col-sm-2">
+		<button  class="btn btn-default our-button" onclick="temple();">Project Screening Matrix</button>
+		</div>
+
+	</div>
+	
 </div>
 
-<div align="center" id="content_response" style="padding-top: 2%;">
-	Select the option you want
+<div align="center" id="content_response" >
+	</br>
+	<h4>Select the option you want</h4>
 </div>
 </body>
 </html>
